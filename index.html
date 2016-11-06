@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Neighborhood Map with Google</title>
+    <meta charset="utf-8">
+    <link href="css/main.css" rel="stylesheet">
+    <style>
+    html,
+    body {
+        height: 100%;
+        background-color: #ccc;
+    }
+
+    a {
+        color: white;
+    }
+
+    #map {
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        position: absolute;
+    }
+    </style>
+</head>
+
+<body>
+<div id="map"></div>
+<div id="search-container">
+    <div id="search-nav">
+        <input id="input" placeholder="Filter" type="input" data-bind="text/filter,valueUpdate:'keydown'" autocomplete="off">
+        <div id="filterList">
+            <ul data-bind="template:{name:'marker',foreach:filteredMarkers}">
+            </ul>
+            <script type="text/html" id="marker">
+                <div data-bind="visible:visible">
+                    <a href="#" data-bind="attr:{id:id}">
+                        <li>
+                            <strong data-bind="text:title"></strong>
+                            <p data-bind="text:street"></p>
+                            <p data-bind=:text:city></p>
+                        </li>
+                    </a>
+                </div>
+            </script>
+        </div>
+    </div>
+</div>
+<div id="nytimes-container">
+    <h3 id="nytimes-header">New York Times Articles</h3>
+    <ul id="nytimes-articles" class="article-list">What's going on in your new city? Enter an address and hit submit and the NY Times will tell you here!</ul>
+</div>
+<script></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/knockout-3.4.0.js"></script>
+<script src="js/app.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7qR5uY4aphXWD1VPEg94JfnARl8A6zVQ&v=3&callback=initMap">
+</script>
+</body>
+
+</html>

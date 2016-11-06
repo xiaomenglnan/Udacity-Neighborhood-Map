@@ -51,7 +51,7 @@ function setMarkers(location) {
             '" alt="Street View Image of ' + location[i].title + '"><br><hr style="margin-bottom: 5px"><strong>' +
             location[i].title + '</strong><br><p>' +
             location[i].street + '<br>' +
-            location[i].city + '<br></p><a class="web-links" href="http://' + location[i].url +
+            location[i].city + '<br></p><a target ="_blank" class="web-links" style="color:black" href="' + location[i].url +
             '" target="_blank">' + location[i].url + '</a>';
 
         var infowindow = new google.maps.InfoWindow({
@@ -73,6 +73,11 @@ function setMarkers(location) {
                 map.setCenter(marker.getPosition());
                 location[i].picBoolTest = true;
                 loadData(location[i].title);
+                if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
             };
         })(location[i].holdMarker, i));
 
@@ -103,6 +108,7 @@ var markers = [{
     id: 'choice0',
     index: 0,
     visible: ko.observable(true),
+    url: "https://en.wikipedia.org/wiki/Hollywood_Forever_Cemetery",
     boolTest: true
 }, {
     title: 'ArcLight Hollywood',
@@ -113,6 +119,7 @@ var markers = [{
     heading: 235,
     index: 1,
     id: "choice1",
+    url: "https://en.wikipedia.org/wiki/ArcLight_Hollywood",
     visible: ko.observable(true),
     boolTest: true
 }, {
@@ -125,6 +132,7 @@ var markers = [{
     index: 2,
     id: "choice2",
     visible: ko.observable(true),
+    url: "https://en.wikipedia.org/wiki/Hollywood_Palladium",
     boolTest: true
 }, {
     title: "Pantages Theatre",
@@ -132,6 +140,7 @@ var markers = [{
     lng: -118.323955,
     street: '6233 Hollywood Blvd',
     city: 'Los Angeles,CA 90028',
+    url: "https://en.wikipedia.org/wiki/Pantages_Theatre_(Hollywood)",
     heading: 170,
     index: 3,
     id: "choice3",
@@ -144,6 +153,7 @@ var markers = [{
     street: '1735 Vine St',
     city: 'Los Angeles,CA 90028',
     heading: 190,
+    url: "https://en.wikipedia.org/wiki/Avalon_Hollywood",
     index: 4,
     id: "choice4",
     visible: ko.observable(true),

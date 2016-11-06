@@ -1,0 +1,55 @@
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+li {
+    font-family: Helvetica, sans-serif;
+    padding: 20px 0 15px 15px;
+}
+
+li:hover {
+    background-color: gray;
+    color: white;
+}
+
+p {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+#search-container {
+    position: absolute;
+    max-height: 549px;
+    background-color: rgb(10, 10, 10);
+    overflow: hidden;
+    z-index: 3;
+}
+
+#nytimes-container {
+    position:absolute;
+    top:10px;
+    left:1000px;
+    z-index: 99;
+    width: 400px;
+    background-color: gray;
+    max-height:549px;
+    overflow:scroll;
+}
+
+#input {
+    margin: 0.5px 20px 20px 0px;
+    width: 80%;
+    height: 30px;
+    font-size: 15px;
+    font-family: helvetica, sans-serif;
+    border: none;
+    -webkit-box-shadow: 2px 2px 2px #9D9D9D;
+    outline: none;
+}
+
+#fliter-list {
+    max-width: 480px;
+    overflow: scroll;
+}
